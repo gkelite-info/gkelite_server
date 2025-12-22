@@ -15,12 +15,6 @@ function getConnection() {
     port: dbPort,
     dialect: "postgres",
     logging: false,
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
   });
 }
 
