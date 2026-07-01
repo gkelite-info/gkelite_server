@@ -14,13 +14,12 @@ interface MessageAttributes {
     deletedAt?: Date;
 }
 
-export interface MessageInput extends Optional<MessageAttributes, "messageId"> {}
-export interface MessageOutput extends Required<MessageAttributes> {}
+export interface MessageInput extends Optional<MessageAttributes, "messageId"> { }
+export interface MessageOutput extends Required<MessageAttributes> { }
 
 class Message
     extends Model<MessageAttributes, MessageInput>
-    implements MessageAttributes
-{
+    implements MessageAttributes {
     public messageId!: number;
     public userId!: number | null;
     public sessionId!: number | null;
@@ -34,42 +33,41 @@ class Message
     public deletedAt?: Date;
 }
 
-Message.init(
-    {
-        messageId: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-            allowNull: false,
-        },
-
-        userId: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-        },
-
-        sessionId: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-        },
-
-        message: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-        },
-
-        senderType: {
-            type: DataTypes.STRING(20),
-            allowNull: false,
-            defaultValue: "user", // values: "user", "bot"
-        },
-
-        isdeleted: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: false,
-        },
+Message.init({
+    messageId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
     },
+
+    userId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+
+    sessionId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+
+    message: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+
+    senderType: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+        defaultValue: "user", // values: "user", "bot"
+    },
+
+    isdeleted: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+    },
+},
     {
         timestamps: true,
         paranoid: true,

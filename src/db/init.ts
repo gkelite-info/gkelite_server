@@ -1,3 +1,8 @@
+import ApplicationAnalyticsLog from "./models/badrukaCollege/leads/applicationAnalyticLogs";
+import Applications from "./models/badrukaCollege/leads/applications";
+import EducationQualifications from "./models/badrukaCollege/leads/education";
+import EntranceExams from "./models/badrukaCollege/leads/entranceExams";
+import Payments from "./models/badrukaCollege/leads/payments";
 import ChatSession from "./models/chatsessions";
 import FaqQuestion from "./models/faqquestions";
 import Message from "./models/message";
@@ -15,6 +20,15 @@ async function dbinit() {
     await FaqQuestion.sync({ alter: isDev });
     await RaisedIssue.sync({ alter: isDev });
     await Reviews.sync({ alter: isDev });
+
+    // Badruka College
+    await Applications.sync({ alter: isDev });
+    await EducationQualifications.sync({ alter: isDev });
+    await EntranceExams.sync({ alter: isDev });
+    await Payments.sync({ alter: isDev });
+    await ApplicationAnalyticsLog.sync({ alter: isDev });
+    // Badruka College
+
 
 }
 
