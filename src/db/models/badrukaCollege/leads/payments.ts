@@ -11,8 +11,8 @@ interface PaymentAttributes {
     paymentDate?: Date | null;
     paymentMethod?: string | null;
     receiptUrl?: string | null;
-
     is_deleted: boolean;
+
     createdAt?: Date;
     updatedAt?: Date;
     deletedAt?: Date;
@@ -30,8 +30,8 @@ class Payments extends Model<PaymentAttributes, PaymentInput> implements Payment
     public paymentDate?: Date | null;
     public paymentMethod?: string | null;
     public receiptUrl?: string | null;
-
     public is_deleted!: boolean;
+
     public readonly createdAt?: Date;
     public readonly updatedAt?: Date;
     public readonly deletedAt?: Date;
