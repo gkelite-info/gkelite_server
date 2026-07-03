@@ -26,6 +26,7 @@ interface ApplicationAttributes {
     admissionRegistrationFee: number;
     applicationNumber?: string | null;
     college?: string | null;
+    admissionStatus?: string | null;
 
     is_deleted: boolean;
     createdAt?: Date;
@@ -59,6 +60,7 @@ class Applications extends Model<ApplicationAttributes, ApplicationInput> implem
     public admissionRegistrationFee!: number;
     public applicationNumber?: string | null;
     public college?: string | null;
+    public admissionStatus?: string | null;
 
     public is_deleted!: boolean;
     public readonly createdAt?: Date;
@@ -180,6 +182,12 @@ Applications.init({
     college: {
         type: DataTypes.STRING(50),
         allowNull: true
+    },
+
+    admissionStatus: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        defaultValue: 'Pending'
     },
 
     is_deleted: {
